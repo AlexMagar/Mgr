@@ -18,10 +18,44 @@ $("h1").addClass("big-title");
 $("h1").text("Bye");
 
 //to change the html tag
-$("button").html("");
+$("button").html("Click Me");
 
 // remove class
 //$("h1").removeClass("big-title");
 
 // change the h1 title to color green
 //$("h1").css("color", "green");
+
+
+//event listiner
+// using js
+// for(var i = 0; i<5; i++){
+//   document.querySelectorAll("button")[i].addEventListener("click", function(){
+//     document.querySelector("h1").style.color = "purple";
+//   });
+// }
+
+
+//using jQuery event Event Listener
+//we are not using for loop because jquery will look through the website and select all the button
+$("button").click(function(){
+  $("h1").css("color", "purple");
+});
+
+//keypress Event
+$(document).keypress(function(event){
+  $("h1").text(event.key);
+  //console.log(event.key); // to print the console
+});
+
+
+//before(), after(), prepend(), append(), remove()
+$("h1").before("<button>New</button>");
+
+
+//hide(), show(), toogle(), fadeOut(), slideUp() slideDown(), slideToogle() the element
+//$("h1").hide();
+//.animate();
+
+//chain method
+// $("h1").slideUp().slideDown().animate(opacity: 0.5);
