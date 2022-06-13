@@ -12,6 +12,10 @@ $(".btn").click(function(event){
 
   //push userChosenColour into userClickedPattern[]
   userClickedPattern.push(userChosenColour);
+
+  playSound(userChosenColour);
+  animatePress(userChosenColour);
+
 });
 
 function nextSequence(){
@@ -27,6 +31,19 @@ function nextSequence(){
   $("#"+randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
   //play the sound for the button selected
-  var playSound = new Audio("sounds/"+randomChosenColour+".mp3");
-  playSound.play();
+  playSound(randomChosenColour);
+}
+
+function playSound(name){
+  var audio  = new Audio("sounds/"+name+".mp3");
+  audio.play();
+}
+
+//add animations to user clicks
+function animatePress(currentColour){
+  $("#"+currentColour).addClass("pressed");
+
+  setTimeout(function(){
+    $("#"+currentColour).removeClass("pressed");
+  }, 100);
 }
