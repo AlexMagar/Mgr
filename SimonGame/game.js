@@ -1,6 +1,5 @@
 var gamePattern = [];
-var userClickedPattern = [];
-
+var userClickedPattern = []; //store user clicked colour in sequence
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 
@@ -30,9 +29,13 @@ $(".btn").click(function(){
   playSound(userChosenColour);
   animatePress(userChosenColour);
 
+  checkAnswer(userClickedPattern.length-1);
+
 });
 
 function nextSequence(){
+
+  userClickedPattern = [];
 
   //increase level by 1 every time nextSequence is called
   level++;
@@ -67,4 +70,20 @@ function animatePress(currentColour){
   setTimeout(function(){
     $("#"+currentColour).removeClass("pressed");
   }, 100);
+}
+
+
+//check user answer with game nextSequence
+function checkAnswer(currentLevel){
+  if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
+    console.log("sucess");
+
+    if(userClickedPattern.length === gamePattern.length){
+      setTimeout(function(){
+        nextSequence();
+      }, 1000);
+    }
+  }else{
+    console.log("wrong");
+  }
 }
