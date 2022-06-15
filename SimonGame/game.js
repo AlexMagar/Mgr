@@ -78,6 +78,8 @@ function checkAnswer(currentLevel){
   if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
     console.log("sucess");
 
+
+
     if(userClickedPattern.length === gamePattern.length){
       setTimeout(function(){
         nextSequence();
@@ -85,5 +87,17 @@ function checkAnswer(currentLevel){
     }
   }else{
     console.log("wrong");
+    //play the wrong audio sound
+    playSound("wrong");
+    
+    $("body").addClass("game-over"); //adding class to body
+
+    //remove class from body after 200milliseconds
+    setTimeout(function(){
+      $("body").removeClass("game-over");
+    }, 200);
+
+    //change title to Game over
+    $("#level-title").text("Gave Over, Press Any Key to Restart");
   }
 }
