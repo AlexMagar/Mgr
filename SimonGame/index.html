@@ -9,7 +9,8 @@
 </head>
 
 <body>
-  <h1 id="level-title">Press A Key to Start</h1>
+  <h1 id="level-title">Press any Key to Start, Remember the pattern</h1>
+
   <div class="container">
     <div lass="row">
 
@@ -34,10 +35,21 @@
     </div>
 
   </div>
-  
+
   <!-- load jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="game.js"></script>
 </body>
 
 </html>
+
+
+
+<!-- //add animations to user clicks
+function animatePress(currentColour){
+  $("#"+currentColour).addClass("pressed");
+
+  setTimeout(function(){
+    $("#"+currentColour).removeClass("pressed");
+  }, 100);
+} -->
