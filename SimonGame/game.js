@@ -89,7 +89,7 @@ function checkAnswer(currentLevel){
     console.log("wrong");
     //play the wrong audio sound
     playSound("wrong");
-    
+
     $("body").addClass("game-over"); //adding class to body
 
     //remove class from body after 200milliseconds
@@ -99,5 +99,15 @@ function checkAnswer(currentLevel){
 
     //change title to Game over
     $("#level-title").text("Gave Over, Press Any Key to Restart");
+
+    startOver(); // for restarting game
   }
+}
+
+// Restart the game
+//set variable to initial value
+function startOver(){
+  level = 0;
+  gamePattern = [];
+  started = false;
 }
